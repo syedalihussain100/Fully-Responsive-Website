@@ -1,0 +1,237 @@
+:root {
+  --primary: #ddd;
+  --dark: #333;
+  --light: #fff;
+  --shadow: 0px 1px 5px rgba(104, 104, 104, 0.8);
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+  color: var(--dark);
+}
+
+body {
+  background: #ccc;
+  margin: 30px 50px;
+  line-height: 1.4;
+}
+
+.btn {
+  color: var(--light);
+  background: var(--dark);
+  padding: 0.6rem 1.3rem;
+  text-decoration: none;
+  border: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+.wrapper {
+  display: grid;
+  grid-gap: 20px;
+}
+
+/* Navigation */
+
+.main_nav {
+  position: sticky;
+  top: 0;
+  position: -webkit-sticky;
+}
+.main_nav ul {
+  list-style: none;
+  display: grid;
+  grid-gap: 20px;
+  padding: 0;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.main_nav a {
+  background: var(--primary);
+  text-decoration: none;
+  padding: 0.8rem;
+  display: block;
+  text-align: center;
+  color: var(--dark);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  box-shadow: var(--shadow);
+}
+
+.main_nav a:hover {
+  background: var(--dark);
+  color: var(--light);
+}
+
+/* Now apply css in  <!-- top container --> */
+
+.top_container {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-areas:
+    "showcase showcase top-box-a"
+    "showcase showcase top-box-b";
+}
+
+.showcase {
+  grid-area: showcase;
+  min-height: 400px;
+  background: url(./second.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 3rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+
+.showcase h1 {
+  color: var(--light);
+  font-size: 4rem;
+  margin-bottom: 0;
+}
+
+.showcase p {
+  font-size: 1.3rem;
+  color: var(--light);
+  margin-top: 0px;
+  text-align: justify;
+}
+
+.top-box-a {
+  grid-area: top-box-a;
+}
+
+.top-box-b {
+  grid-area: top-box-b;
+}
+
+/* Now appliying css in boxes */
+.top-box {
+  background-color: var(--primary);
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  box-shadow: var(--shadow);
+  padding: 1.6rem;
+}
+
+.price {
+  font-size: 2.1rem;
+}
+
+.top-box h4 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.boxes {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.box {
+  text-align: center;
+  padding: 1.5rem 2rem;
+  background: var(--primary);
+  box-shadow: var(--shadow);
+}
+
+/* Now adding css in info_section */
+.info_section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  box-shadow: var(--shadow);
+  grid-gap: 30px;
+  background: var(--primary);
+  padding: 3rem;
+}
+
+.info_section h2 {
+  margin-bottom: 2.8rem;
+  font-size: 1.6rem;
+}
+
+.info_section p {
+  margin-bottom: 3.45rem;
+  font-size: 1.2rem;
+  text-align: justify;
+}
+
+.info_section img {
+  width: 100%;
+  box-shadow: var(--shadow);
+  border-radius: 1rem;
+}
+
+/* Now appliying css in Portfolio */
+
+.portfolio {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.portfolio img {
+  width: 100%;
+  box-shadow: var(--shadow);
+}
+
+footer {
+  background: var(--dark);
+  text-align: center;
+  padding: 1.2rem;
+  color: var(--primary);
+}
+
+footer p {
+  font-size: 1.1rem;
+}
+
+/* Now Starting Media Query */
+@media (max-width: 700px) {
+  .top_container {
+    grid-template-areas:
+      "showcase showcase"
+      "top-box-a top-box-b";
+  }
+  .showcase h1 {
+    font-size: 2.2rem;
+  }
+  .showcase p {
+    text-align: justify;
+  }
+  .main_nav ul {
+    grid-template-columns: 1fr;
+  }
+  .info_section {
+    grid-template-columns: 1fr;
+  }
+  .info_section .btn {
+    display: block;
+    text-align: center;
+    margin: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .top_container {
+    grid-template-areas:
+      "showcase"
+      "top-box-a"
+      "top-box-b";
+      overflow: hidden;
+  }
+  /* .showcase p {
+    text-align: justify;
+    display: block;
+    grid-template-columns: 1fr;
+  } */
+}
